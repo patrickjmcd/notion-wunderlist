@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
 from sys import argv
 
-import wunderlist_tasks
-import notion_tasks
+from . import wunderlist_tasks
+from . import notion_tasks
 
 load_dotenv()
 
