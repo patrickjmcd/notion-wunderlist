@@ -28,7 +28,13 @@ def check_task_status(notion_task, wunderlist_task):
     return False
 
 
-def main(list_name):
+def main():
+    list_name = ""
+    if len(argv) > 1:
+        list_name = argv[1]
+    else:
+        exit("You must provide a Wunderlist list name")
+
     wunderlist_list = wunderlist_tasks.fetch_list_with_title(list_name)
     wunderlist_tasklist = wunderlist_tasks.get_tasks(list_name)
     notion_tasklist = notion_tasks.get_tasks()
@@ -53,7 +59,4 @@ def main(list_name):
 
 
 if __name__ == '__main__':
-    if len(argv) > 1:
-        main(argv[1])
-    else:
-        exit("You must provide a Wunderlist list name")
+    main()
